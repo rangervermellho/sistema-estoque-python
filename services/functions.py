@@ -21,7 +21,7 @@ def cadastro(lista_produto):
             print("Valor Inválido")
 
     
-    novo_produto = Produto(nome, preco, quantidade)
+    novo_produto = Produto(nome, quantidade, preco )
     lista_produto.append(novo_produto)
     print(f" Produto '{nome}' cadastrado!")
 
@@ -55,13 +55,13 @@ def editar_produto(lista_produto):
         if p.nome.lower() == nome.lower():
             novo_nome = input("Novo nome: ")
             try:
-                novo_valor = float(input("Novo Valor: R$ "))
+                novo_preco = float(input("Novo Valor: R$ "))
             except ValueError:
                 print("valor incorreto, digite preço valido")
                 return
             
             p.nome = novo_nome
-            p.valor = novo_valor
+            p.preco = novo_preco
             print("Produto atualizado! ")
             p.mostrar()
             return p

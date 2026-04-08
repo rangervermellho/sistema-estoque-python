@@ -1,4 +1,4 @@
-from services.functions import *
+from services.functions import cadastro, produtos_cadastrados, buscar, editar_produto, excluir_produto, produto_mais_caro, produto_maior_quantia, valor_estoque, total_itens, salvar_estoque
 import json
 
 
