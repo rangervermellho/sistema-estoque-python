@@ -19,7 +19,7 @@ while True:
 
 
     try:
-        menu = int(input("Escolha uma opção: "))
+        menu = int(input("\nEscolha uma opção: "))
     except ValueError:
         print("Escolha uma das opções validas")
         continue

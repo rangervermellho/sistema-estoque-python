@@ -105,14 +105,14 @@ def produto_maior_quantia(lista_produto):
         print("Nenhum produto encontrado ")
         return
     
-    quant_itens = lista_produto[0]
+    maior_produto = lista_produto[0]
     
     for p in lista_produto:
-        if p.quantidade > quant_itens:
-            quant_itens = p
+        if p.quantidade > maior_produto.quantidade:
+            maior_produto = p
 
-        print("Produto com maior quantidade é: ")
-        quant_itens.mostrar()
+    print("Produto com maior quantidade é: ")
+    maior_produto.mostrar()
 
 
 def valor_estoque(lista_produto):
