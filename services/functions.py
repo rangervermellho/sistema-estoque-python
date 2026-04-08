@@ -3,12 +3,27 @@ from models.produto import Produto
 
 
 def cadastro(lista_produto):
+    while True:
+        try:
+            codigo = int(input("Insira o codigo do produto"))
+            if codigo > 0 :
+                print("Codigo nao pode ser negativo!")
+            else:
+                break
+        except ValueError:
+            print("Valor invalido, somente numeros inteiros")
+
+
     nome = str(input("Nome do Produto: " ))
 
     while True:
         try: 
             preco = float(input("Valor do item: R$ "))
-            break
+            if preco < 0 :
+                print("Valor nao deve ser negativo")
+            else:
+
+                break
         except ValueError:
             print("Valor inválido, formato de entrada R$ 00.00")
         
@@ -16,12 +31,15 @@ def cadastro(lista_produto):
     while True:
         try:
             quantidade = int(input("Insira a quantidade: "))
-            break
+            if quantidade < 0 :
+                print("Valor não deve ser negativo")
+            else:   
+                break
         except ValueError:
             print("Valor Inválido")
 
     
-    novo_produto = Produto(nome, quantidade, preco )
+    novo_produto = Produto(codigo, nome, quantidade, preco )
     lista_produto.append(novo_produto)
     print(f" Produto '{nome}' cadastrado!")
 
@@ -36,10 +54,13 @@ def produtos_cadastrados(lista_produto):
 
 
 def buscar(lista_produto):
-    nome = input("Qual produto deseja buscar")
+
+    print("Insira Codigo ou Nome do produto\n")
+
+    codigo = int(input()) or nome=input()
 
     for p in lista_produto:
-        if p.nome.lower() == nome.lower():
+        if p.nome.lower() == nome.lower() or p.codigo == codigo:
             print("produto encontrado ")
             p.mostrar()
             return p
@@ -54,14 +75,32 @@ def editar_produto(lista_produto):
     for p in lista_produto:
         if p.nome.lower() == nome.lower():
             novo_nome = input("Novo nome: ")
-            try:
-                novo_preco = float(input("Novo Valor: R$ "))
+
+        while True:
+            try:  
+                novo_preco = float(input("Novo valor: R$ "))
+                if novo_preco > 0 :
+                    print("Valor não pode ser negativo")
+                else:
+                    break
             except ValueError:
-                print("valor incorreto, digite preço valido")
+                print("Valor digitado deve ser no formato: R$ 00.00")
                 return
             
+        while True:
+            try:
+                nova_quantidade = int(input("Nova quantidade: "))
+                if nova_quantidade > 0 :
+                    print("Valor não pode ser negativo")
+                else:
+                    break
+            except ValueError:
+                print("Valor digitado incorreto")
+                return
+             
             p.nome = novo_nome
             p.preco = novo_preco
+            p.quantidade = nova_quantidade
             print("Produto atualizado! ")
             p.mostrar()
             return p
