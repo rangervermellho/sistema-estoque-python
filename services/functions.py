@@ -8,6 +8,11 @@ def cadastro(lista_produto):
             codigo = int(input("Insira o codigo do produto"))
             if codigo > 0 :
                 print("Codigo nao pode ser negativo!")
+            for c in lista_produto:
+                c.codigo == codigo
+                print("Codigo já cadastrado")
+                return c               
+
             else:
                 break
         except ValueError:
