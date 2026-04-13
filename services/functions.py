@@ -100,6 +100,7 @@ def buscar(lista_produto):
 
 
 def editar_produto(lista_produto):
+
     try:
         codigo = int(input("Codigo do produto que deseja editar: "))
     except ValueError:
@@ -149,9 +150,13 @@ def editar_produto(lista_produto):
 def excluir_produto(lista_produto):
     for p in lista_produto:
         p.mostrar()
+        
+    try:
+        codigo = int(input("Codigo do Produto que deseja excluir "))
+    except ValueError:
+        print("Digite um código válido.")
+        return
     
-    codigo = int(input("Codigo do Produto que deseja excluir "))
-
     for p in lista_produto:
         if p.codigo == codigo:
             lista_produto.remove(p)

@@ -32,6 +32,7 @@ while True:
     elif menu == 4:
         editar_produto(lista_produto)
     elif menu == 5:
+
         excluir_produto(lista_produto)
     elif menu == 6:
         produto_mais_caro(lista_produto)
