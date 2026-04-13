@@ -7,15 +7,14 @@ lista_produto = carregar_estoque()
 
 while True:
     print("\n ===  SISTEMA DE CONTROLE ESTOQUE ===\n")
-    print("1 - Cadastrar produto\n")
-    print("2 - Produtos cadastrados\n")
-    print("3 - Buscar produto\n")
-    print("4 - Editar cadastro\n")
-    print("5 - Excluir produto\n")
-    print("6 - Produto mais caro\n")
-    print("7 - Produto com maior quantidade\n")
-    print("8 - Valor total em estoque\n")
-    print("9 - Total de itens do estoque\n")
+    print("1 - Cadastrar produto")
+    print("2 - Produtos cadastrados")
+    print("3 - Buscar produto")
+    print("4 - Editar cadastro")
+    print("5 - Excluir produto")
+    print("6 - Produto mais caro")
+    print("7 - Produto com maior quantidade")
+    print("8 - Valor total em estoque")
     print("10 - Salvar e sair\n")
 
 
@@ -24,7 +23,6 @@ while True:
     except ValueError:
         print("Escolha uma das opções validas")
         continue
-
     if menu == 1:
         cadastro(lista_produto)
     elif menu == 2:
@@ -49,4 +47,6 @@ while True:
         break
     else:
         print("Opção inválida. ")
+
+
 

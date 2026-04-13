@@ -81,56 +81,67 @@ def produtos_cadastrados(lista_produto):
 
 
 def buscar(lista_produto):
-##Funçao de busca de produto, 
-    print("Insira Codigo ou Nome do produto\n")
+##Funçao de busca de produto por nome 
+    print("Insira Nome do produto\n")
 
     nome=input()
 
+##Recebe o nome do digitado e busca na lista de cadastrados
+
     for p in lista_produto:
-        if p.nome.lower() == nome.lower() or p.codigo == codigo:
+        if p.nome.lower() == nome.lower():
             print("produto encontrado ")
             p.mostrar()
             return p
     
-    print("Produto não encontrado! ")
-    return None
+        else:
+            print("Produto não encontrado! ")
+            return None
 
 
 def editar_produto(lista_produto):
-    nome = input("Nome do produto que deseja editar: ")    
+    try:
+        codigo = int(input("Codigo do produto que deseja editar: "))
+    except ValueError:
+        print("Digite um código válido.")
+        return
 
     for p in lista_produto:
-        if p.nome.lower() == nome.lower():
-            novo_nome = input("Novo nome: ")
+        if p.codigo == codigo:
+            print("Produto encontrado!")
+            p.mostrar()
 
-        while True:
-            try:  
-                novo_preco = float(input("Novo valor: R$ "))
-                if novo_preco > 0 :
-                    print("Valor não pode ser negativo")
-                else:
-                    break
-            except ValueError:
-                print("Valor digitado deve ser no formato: R$ 00.00")
-                return
-            
-        while True:
-            try:
-                nova_quantidade = int(input("Nova quantidade: "))
-                if nova_quantidade > 0 :
-                    print("Valor não pode ser negativo")
-                else:
-                    break
-            except ValueError:
-                print("Valor digitado incorreto")
-                return
-             
+            novo_nome = input("Novo nome do produto: ")
+
+            while True:
+                try:
+                    novo_preco = float(input("Novo valor: R$ "))
+                    if novo_preco < 0:
+                        print("Valor não pode ser negativo.")
+                    else:
+                        break
+                except ValueError:
+                    print("Valor digitado deve ser no formato 00.00")
+
+            while True:
+                try:
+                    nova_quantidade = int(input("Nova quantidade: "))
+                    if nova_quantidade < 0:
+                        print("Quantidade não pode ser negativa.")
+                    else:
+                        break
+                except ValueError:
+                    print("Digite um número inteiro válido.")
+
             p.nome = novo_nome
             p.preco = novo_preco
             p.quantidade = nova_quantidade
-            print("Produto atualizado! ")
+
+            print("Produto atualizado!")
             p.mostrar()
             return p
+
+    print("Produto não encontrado.")
     
     print("produto não encontrado")
 
@@ -138,17 +149,18 @@ def editar_produto(lista_produto):
 def excluir_produto(lista_produto):
     for p in lista_produto:
         p.mostrar()
-
-    nome = input("Nome do Produto que deseja excluir ")
+    
+    codigo = int(input("Codigo do Produto que deseja excluir "))
 
     for p in lista_produto:
-        if p.nome.lower() == nome.lower():
+        if p.codigo == codigo:
             lista_produto.remove(p)
             print("Produto excluído!")
             return p
-    
-    print("Produto não encontrado! ")
-    return None
+        
+        else:
+            print("Produto não encontrado! ")
+            return None
 
 
 def produto_mais_caro(lista_produto):
