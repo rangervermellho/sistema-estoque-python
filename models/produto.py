@@ -21,10 +21,10 @@ class Produto:
             "preco": self.preco
         }
     
-
+    @staticmethod
     def from_dict(dados):
         return Produto(
-            codigo=dados["codigo"],
+            cod_produto=dados["codigo"],
             nome=dados["nome"],
             quantidade=dados["quantidade"],
             preco=dados["preco"]

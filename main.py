@@ -1,25 +1,26 @@
 from services.functions import cadastro, produtos_cadastrados, buscar, editar_produto, excluir_produto, produto_mais_caro, produto_maior_quantia, valor_estoque, total_itens, salvar_estoque, carregar_estoque
+from models.produto import Produto
 import json
 
 
 lista_produto = carregar_estoque()
 
 while True:
-    print("\n ===  SISTEMA DE CONTROLE ESTOQUE ===")
-    print("\n1 - Cadastrar produto")
-    print("2 - Produtos cadastrados")
-    print("3 - Buscar produto")
-    print("4 - Editar cadastro")
-    print("5 - Excluir produto")
-    print("6 - Produto mais caro")
-    print("7 - Produto com maior quantidade")
-    print("8 - Valor total em estoque")
-    print("9 - Total de itens do estoque")
-    print("10 - Salvar e sair")
+    print("\n ===  SISTEMA DE CONTROLE ESTOQUE ===\n")
+    print("1 - Cadastrar produto\n")
+    print("2 - Produtos cadastrados\n")
+    print("3 - Buscar produto\n")
+    print("4 - Editar cadastro\n")
+    print("5 - Excluir produto\n")
+    print("6 - Produto mais caro\n")
+    print("7 - Produto com maior quantidade\n")
+    print("8 - Valor total em estoque\n")
+    print("9 - Total de itens do estoque\n")
+    print("10 - Salvar e sair\n")
 
 
     try:
-        menu = int(input("\nEscolha uma opção: "))
+        menu = int(input("\nEscolha uma opção: \n"))
     except ValueError:
         print("Escolha uma das opções validas")
         continue
