@@ -209,7 +209,7 @@ def valor_estoque(lista_produto):
 
 
 def total_itens(lista_produto):
-    total = sum(p.quantidade for p in lista_produto )
+    total = int(sum(p.quantidade for p in lista_produto ))
     print(f"estoque total é de {total:.2f} itens")
     return total
 

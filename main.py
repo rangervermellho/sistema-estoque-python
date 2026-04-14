@@ -14,6 +14,7 @@ while True:
     print("6 - Produto mais caro")
     print("7 - Produto com maior quantidade")
     print("8 - Valor total em estoque")
+    print("9 - Total de itens em estoque")
     print("10 - Salvar e sair\n")
 
 
