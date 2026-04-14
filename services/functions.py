@@ -116,16 +116,6 @@ def editar_produto(lista_produto):
 
             while True:
                 try:
-                    novo_preco = float(input("Novo valor: R$ "))
-                    if novo_preco < 0:
-                        print("Valor não pode ser negativo.")
-                    else:
-                        break
-                except ValueError:
-                    print("Valor digitado deve ser no formato 00.00")
-
-            while True:
-                try:
                     nova_quantidade = int(input("Nova quantidade: "))
                     if nova_quantidade < 0:
                         print("Quantidade não pode ser negativa.")
@@ -134,9 +124,23 @@ def editar_produto(lista_produto):
                 except ValueError:
                     print("Digite um número inteiro válido.")
 
+
+            while True:
+                try:
+                    novo_preco = float(input("Novo valor: R$ "))
+                    if novo_preco < 0:
+                        print("Valor não pode ser negativo.")
+                    else:
+                        break
+                except ValueError:
+                    print("Valor digitado deve ser no formato 00.00")
+
+            
+
+
             p.nome = novo_nome
-            p.preco = novo_preco
             p.quantidade = nova_quantidade
+            p.preco = novo_preco
 
             print("Produto atualizado!")
             p.mostrar()
