@@ -148,9 +148,10 @@ def editar_produto(lista_produto):
 
 
 def excluir_produto(lista_produto):
-    for p in lista_produto:
-        p.mostrar()
-        
+    if len(lista_produto) == 0:
+        print("Nenhum produto cadastrado! ")
+        return
+    
     try:
         codigo = int(input("Codigo do Produto que deseja excluir "))
     except ValueError:
@@ -163,9 +164,8 @@ def excluir_produto(lista_produto):
             print("Produto excluído!")
             return p
         
-        else:
-            print("Produto não encontrado! ")
-            return None
+        print("Produto não encontrado! ")
+        return None
 
 
 def produto_mais_caro(lista_produto):
