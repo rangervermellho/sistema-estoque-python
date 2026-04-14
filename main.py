@@ -1,9 +1,17 @@
+##Importaçoes das funções utilizadas no sistema, salvamento do em um arquivo JSON e carregamento do estoque
+#  a partir de um arquivo JSON.
 from services.functions import cadastro, produtos_cadastrados, buscar, editar_produto, excluir_produto, produto_mais_caro, produto_maior_quantia, valor_estoque, total_itens, salvar_estoque, carregar_estoque
 import json
 
-
+###Carregamento do estoque a partir do arquivo JSON, onde a função carregar_estoque() é chamada para obter a lista de produtos cadastrados,
+#  e em seguida, é exibido um menu de opções para o usuário interagir com o sistema de controle de estoque. O menu é exibido em um loop infinito,
+#  permitindo que o usuário escolha diferentes opções até decidir salvar e sair do sistema.
 lista_produto = carregar_estoque()
 
+
+## Menu de opções para o usuário interagir com o sistema de controle de estoque, onde é exibido um menu com diferentes opções numeradas,
+#  e o usuário é solicitado a escolher uma opção digitando o número correspondente. O menu é exibido em um loop infinito,
+#  permitindo que o usuário escolha diferentes opções até decidir salvar e sair do sistema.
 while True:
     print("\n ===  SISTEMA DE CONTROLE ESTOQUE ===\n")
     print("1 - Cadastrar produto")

@@ -8,21 +8,18 @@ def cadastro(lista_produto):
     
     while True:
         try:
-
             ##Validação de numero positivo para o codigo do produto
             codigo = int(input("Insira o codigo do produto: "))
 
             if codigo <= 0 :
                 print("Codigo nao pode ser negativo!")
-                continue
-
+                   
             ##Validação de codigo unico por produto, verificando se o codigo ja existe na lista de produtos cadastrados
             cod_existe = False
             for c in lista_produto:
                 if c.codigo == codigo:
                     cod_existe = True
                     print("Codigo já existe, insira um codigo diferente! ")
-                    break
 
             else:
                 break
@@ -94,13 +91,16 @@ def buscar(lista_produto):
             p.mostrar()
             return p
     
-        else:
-            print("Produto não encontrado! ")
-            return None
+    
+    print("Produto não encontrado! ")
+    return None
 
 
 def editar_produto(lista_produto):
-
+## Função para editar um produto cadastrado, onde o usuário é solicitado a inserir o código do produto que deseja editar,
+#  e caso o produto seja encontrado, é possível editar o nome, quantidade e preço do produto,
+#  com as mesmas validações de entrada utilizadas na função de cadastro. Caso o produto não seja encontrado,
+#  é exibida uma mensagem informando que o produto não foi encontrado.
     try:
         codigo = int(input("Codigo do produto que deseja editar: "))
     except ValueError:
@@ -147,11 +147,13 @@ def editar_produto(lista_produto):
             return p
 
     print("Produto não encontrado.")
-    
-    print("produto não encontrado")
 
 
 def excluir_produto(lista_produto):
+##Função para excluir um produto cadastrado, onde o usuário é solicitado a inserir o código do produto que deseja excluir,
+#  e caso o produto seja encontrado, ele é removido da lista de produtos cadastrados.
+#  Caso o produto não seja encontrado, é exibida uma mensagem informando que o produto não foi encontrado.
+
     if len(lista_produto) == 0:
         print("Nenhum produto cadastrado! ")
         return
@@ -173,6 +175,11 @@ def excluir_produto(lista_produto):
 
 
 def produto_mais_caro(lista_produto):
+##Função para encontrar o produto mais caro, onde é verificado se a lista de produtos cadastrados está vazia, e caso esteja,
+#  é exibida uma mensagem informando que nenhum produto foi encontrado. Caso contrário,
+#  é percorrida a lista de produtos cadastrados para encontrar o produto com o maior preço,
+#  e em seguida, é exibida a informação do produto mais caro encontrado.
+
     if len(lista_produto) == 0:
         print("Nenhum produto encontrado")
         return
@@ -188,6 +195,10 @@ def produto_mais_caro(lista_produto):
 
 
 def produto_maior_quantia(lista_produto):
+##Função para encontrar o produto com maior quantidade, onde é verificado se a lista de produtos cadastrados está vazia,
+#  e caso esteja, é exibida uma mensagem informando que nenhum produto foi encontrado. Caso contrário,
+#  é percorrida a lista de produtos cadastrados para encontrar o produto com a maior quantidade,.
+
     if len(lista_produto) == 0:
         print("Nenhum produto encontrado ")
         return
@@ -203,24 +214,40 @@ def produto_maior_quantia(lista_produto):
 
 
 def valor_estoque(lista_produto):
+   ##Função para calcular o valor total do estoque, onde é verificado se a lista de produtos cadastrados está vazia, e caso esteja,
+   #  é exibida uma mensagem informando que nenhum produto foi encontrado. Caso contrário,
+   #   é percorrida a lista de produtos cadastrados para calcular o valor total do estoque,
+   # multiplicando o preço pela quantidade de cada produto, e em seguida, é exibida a soma total do estoque.
+
    total = sum(p.preco * p.quantidade for p in lista_produto)
    print(f"Soma total do estoque é : R$ {total:.2f}")
    return total
 
 
 def total_itens(lista_produto):
+##Função para calcular o total de itens em estoque, onde é verificado se a lista de produtos cadastrados está vazia, e caso esteja,
+#  é exibida uma mensagem informando que nenhum produto foi encontrado. Caso contrário,
+#  é percorrida a lista de produtos cadastrados para calcular o total de itens em estoque,
+#  somando a quantidade de cada produto, e em seguida, é exibida a soma total de itens em estoque.      
+
     total = int(sum(p.quantidade for p in lista_produto ))
     print(f"estoque total é de {total:.2f} itens")
     return total
 
 
 def salvar_estoque(lista_produtos):
+##Função para salvar o estoque em um arquivo JSON, onde a lista de produtos cadastrados é convertida para um formato de dicionário utilizando
+#  o método to_dict() da classe Produto, e em seguida, é salvo em um arquivo chamado "estoque.json"
+#  utilizando a função json.dump(). O arquivo é salvo com indentação para facilitar a leitura,
+#  e o parâmetro ensure_ascii=False é utilizado para permitir a escrita de caracteres acentuados corretamente.
     with open("estoque.json", "w", encoding="utf-8") as arquivo:
         json.dump([p.to_dict() for p in lista_produtos], arquivo, indent=4, ensure_ascii=False)
 
 
 def carregar_estoque():
-
+##Função para carregar o estoque a partir de um arquivo JSON, onde é verificado se o arquivo "estoque.json" existe, e caso exista,
+#  o conteúdo do arquivo é lido e convertido para uma lista de objetos Produto utilizando o método from_dict() da classe Produto.
+#  Caso o arquivo não exista, é retornada uma lista vazia, indicando que nenhum produto foi carregado.
     try:
         with open("estoque.json", "r", encoding="utf-8") as arquivo:
             dados=json.load(arquivo)
