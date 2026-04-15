@@ -252,3 +252,7 @@ def carregar_estoque():
     except json.JSONDecodeError:
         print("Erro ao carregar o estoque. O arquivo está corrompido.")
         return []
+
+
+
+

@@ -29,9 +29,3 @@ class Produto:
             quantidade=dados["quantidade"],
             preco=dados["preco"],
         )
-        return Produto(
-            cod_produto=dados["codigo"],
-            nome=dados["nome"],
-            quantidade=dados["quantidade"],
-            preco=dados["preco"],
-        )
