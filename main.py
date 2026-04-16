@@ -1,4 +1,4 @@
-##importação de funçoes 
+##importação de funçoes
 from services.functions import (
     cadastro,
     produtos_cadastrados,
