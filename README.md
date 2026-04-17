@@ -1,35 +1,54 @@
-#  Sistema de Controle de Estoque em Python
+# Sistema de Controle de Estoque em Python
 
-Projeto desenvolvido com foco na prática de desenvolvimento back-end utilizando Python, aplicando conceitos de lógica de programação, programação orientada a objetos (POO), organização de código e testes automatizados.
+Projeto desenvolvido com foco na prática de desenvolvimento back-end utilizando Python.
+
+Este sistema simula um controle de estoque completo via terminal (CLI), permitindo o gerenciamento de produtos com persistência de dados e aplicação de boas práticas de desenvolvimento.
 
 ---
 
-##  Funcionalidades
+## Status do Projeto
+
+ Em desenvolvimento ativo
+ Projeto em evolução contínua
+
+---
+
+## Funcionalidades
 
 * Cadastro de produtos
 * Listagem de produtos
 * Busca por nome e código
 * Edição de produtos
 * Exclusão de produtos
-* Relatórios:
 
-  * Produto mais caro
-  * Produto com maior quantidade
-  * Valor total em estoque
-  * Total de itens
-* Persistência de dados utilizando JSON
+### Relatórios
+
+* Produto mais caro
+* Produto com maior quantidade
+* Valor total em estoque
+* Total de itens
+
+ Persistência de dados utilizando JSON
 
 ---
 
-##  Tecnologias utilizadas
+## Tecnologias utilizadas
 
 * Python 3
-* JSON
+* JSON (persistência de dados)
 * Pytest (testes automatizados)
+
+ **Conceitos aplicados:**
+
+* Programação Orientada a Objetos (POO)
+* Separação de responsabilidades
+* Modularização de código
+* Validação de dados
+* Estrutura em camadas (models, services, utils)
 
 ---
 
-##  Estrutura do projeto
+## Estrutura do projeto
 
 ```text
 sistema-estoque-python/
@@ -47,7 +66,35 @@ sistema-estoque-python/
 
 ---
 
-##  Como executar o projeto
+## Exemplo de uso
+
+```text
+=== SISTEMA DE CONTROLE DE ESTOQUE ===
+
+1 - Cadastrar produto
+2 - Listar produtos
+3 - Buscar produto
+4 - Editar produto
+5 - Excluir produto
+6 - Produto mais caro
+7 - Produto com maior quantidade
+8 - Valor total em estoque
+9 - Total de itens
+10 - Salvar e sair
+
+Escolha uma opção: 1
+
+Código: 1
+Nome: Teclado
+Quantidade: 10
+Preço: 100
+
+Produto cadastrado com sucesso!
+```
+
+---
+
+## Como executar o projeto
 
 1. Clone o repositório:
 
@@ -55,13 +102,13 @@ sistema-estoque-python/
 git clone https://github.com/rangervermellho/sistema-estoque-python.git
 ```
 
-2. Acesse a pasta do projeto:
+1. Acesse a pasta do projeto:
 
 ```bash
 cd sistema-estoque-python
 ```
 
-3. Execute o sistema:
+1. Execute o sistema:
 
 ```bash
 python main.py
@@ -69,7 +116,7 @@ python main.py
 
 ---
 
-##  Como rodar os testes
+## Como rodar os testes
 
 Instale as dependências (caso necessário):
 
@@ -85,19 +132,25 @@ pytest
 
 ---
 
-##  Objetivo do projeto
+## Objetivo do projeto
 
 Este projeto foi desenvolvido com o objetivo de evoluir habilidades em:
 
 * Desenvolvimento back-end com Python
-* Programação orientada a objetos (POO)
+* Programação Orientada a Objetos (POO)
 * Organização e modularização de código
 * Boas práticas de desenvolvimento
 * Escrita de testes automatizados
 
 ---
 
-##  Próximas melhorias
+## Objetivo profissional
+
+Este projeto faz parte da minha jornada de evolução como Desenvolvedor Python, com foco em aplicar boas práticas e me preparar para atuar profissionalmente na área.
+
+---
+
+## Próximas melhorias
 
 * Implementação de interface gráfica ou API
 * Sistema de autenticação (login)
@@ -106,8 +159,9 @@ Este projeto foi desenvolvido com o objetivo de evoluir habilidades em:
 
 ---
 
-##  Autor
+## Autor
 
 Desenvolvido por Eduardo Neri
-🔗 LinkedIn: https://www.linkedin.com/in/eduardo-neri-96b3732a5/
-🔗 GitHub: https://github.com/rangervermellho
+
+🔗 LinkedIn: <https://www.linkedin.com/in/eduardo-neri-96b3732a5/>
+🔗 GitHub: <https://github.com/rangervermellho>
