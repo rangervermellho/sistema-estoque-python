@@ -19,7 +19,7 @@ def exibir_menu() -> None:
     print("\n=== SISTEMA DE CONTROLE DE ESTOQUE ===")
     print("1 - Cadastrar produto")
     print("2 - Listar produtos")
-    print("3 - Buscar produto por nome")
+    print("3 - Buscar produto")
     print("4 - Editar produto")
     print("5 - Excluir produto")
     print("6 - Produto mais caro")
